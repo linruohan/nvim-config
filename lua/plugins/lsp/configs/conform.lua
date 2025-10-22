@@ -1,8 +1,8 @@
 local formatters_by_ft = {
   php = { "pint" },
   blade = { "blade-formatter" },
-  -- lua = { "stylua" },
-  -- python = { "ruff" },
+  lua = { "stylua" },
+  python = { "ruff" },
   cpp = { "clang_format" },
   c = { "clang_format" },
   go = { "gofumpt" },
@@ -21,6 +21,8 @@ local formatters_by_ft = {
   typescript = { "prettier" },
   typescriptreact = { "prettier" },
   vue = { "prettier" },
+  sh = { "shfmt" },
+  rust = { "rustfmt" },
 }
 
 ---@type NvPluginSpec
@@ -45,5 +47,14 @@ return {
       return { timeout_ms = 500, lsp_format = "fallback" }
     end,
     formatters_by_ft = formatters_by_ft,
+    formatters = {
+      shfmt = {
+        prepend_args = { "-i", "4", "-ci", "-bn", "-sr" },
+      },
+      svelte_fmt = {
+        command = "prettier",
+        args = { "--plugin", prettier_svelte, "$FILENAME" },
+      },
+    },
   },
 }

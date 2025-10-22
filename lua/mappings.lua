@@ -104,10 +104,10 @@ vim.keymap.set("n", "<leader>ow", function()
 end, { desc = "Options | Toggle Wrap", silent = true })
 
 -- Better Down
-vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { desc = "General | Better Down", expr = true, silent = true })
+-- vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { desc = "General | Better Down", expr = true, silent = true })
 
 -- Better Up
-vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { desc = "General | Better Up", expr = true, silent = true })
+-- vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { desc = "General | Better Up", expr = true, silent = true })
 
 -- Go to upper window
 vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "General | Go to upper window", silent = true })
@@ -154,16 +154,16 @@ vim.keymap.set("n", "L", function()
 end, { desc = "General | Go to next buffer", silent = true })
 
 -- Go to previous tab
-vim.keymap.set("n", "<Left>", "<cmd>tabprevious<CR>", { desc = "General | Go to previous tab", silent = true })
+-- vim.keymap.set("n", "<Left>", "<cmd>tabprevious<CR>", { desc = "General | Go to previous tab", silent = true })
 
 -- Go to next tab
-vim.keymap.set("n", "<Right>", "<cmd>tabnext<CR>", { desc = "General | Go to next tab", silent = true })
+-- vim.keymap.set("n", "<Right>", "<cmd>tabnext<CR>", { desc = "General | Go to next tab", silent = true })
 
 -- New tab
-vim.keymap.set("n", "<Up>", "<cmd>tabnew<CR>", { desc = "General | New tab", silent = true })
+-- vim.keymap.set("n", "<Up>", "<cmd>tabnew<CR>", { desc = "General | New tab", silent = true })
 
 -- Close tab
-vim.keymap.set("n", "<Down>", "<cmd>tabclose<CR>", { desc = "General | Close tab", silent = true })
+-- vim.keymap.set("n", "<Down>", "<cmd>tabclose<CR>", { desc = "General | Close tab", silent = true })
 
 -- Indent backward
 vim.keymap.set("n", "<", "<<", { desc = "General | Indent backward", silent = true })
@@ -325,3 +325,48 @@ vim.keymap.set("n", "<leader>pp", "<cmd>Lazy profile<cr>", { desc = "Lazy | Prof
 
 -- Update
 vim.keymap.set("n", "<leader>pu", "<cmd>Lazy update<cr>", { desc = "Lazy | Update", silent = true })
+
+local map = vim.keymap.set
+map("n", ";", ":", { desc = "CMD enter command mode" })
+-- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
+require "nvchad.mappings"
+map("n",";",":")
+map("n","<C-w>","<cmd> bd <CR>", { desc = "close file"})
+-- ctrl + p 搜索文件
+map("n", "<C-p>", "<cmd>Telescope find_files<cr>", { desc = "telescope find files" })
+-- ctrl + f grep 关键字
+map("n", "<C-f>", "<cmd>Telescope live_grep<CR>", { desc = "telescope live grep" })
+map("n","<leader>gg","<cmd> !golines . -w <CR>", { desc ="run golines"})
+map("n","<leader>bb","<cmd> !black . <CR>", { desc ="run black"})
+map("n","S",":w!<cr>")
+map("n","Q",":q!<cr>")
+map("n","<leader>w",":w!<cr>")
+map("n","<leader>q",":q!<cr>")
+map("n","=","n")
+map("n","-"," N")
+map("n","<C-s>",":w<cr>")
+map("i","jj","ESC")
+map("i", "jk", "<ESC>")
+map("v",">",">gv")
+map("n", "<leader>fm", function()
+  require("conform").format()
+end, { desc = "File Format with conform" })
+
+-- switch tab files : shift+l :next ; shift+h :prev; leader+x: close;
+map("n", "<S-l>", function()
+  require("nvchad.tabufline").next()
+end, { desc = "buffer goto next" })
+map("n", "<S-h>", function()
+  require("nvchad.tabufline").prev()
+end, { desc = "buffer goto prev" })
+-- map("n", "<leader>x", function()
+  -- require("nvchad.tabufline").close_buffer()
+-- end, { desc = "buffer close" })
+
+
+map("i", "jk", "<ESC>", { desc = "escape insert mode" })
+
+-- Mappings for M.shade
+map("n", "<Bslash>", function()
+  require("shade").toggle()
+end, { desc = "Toggle shade.nvim" })
