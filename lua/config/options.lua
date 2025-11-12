@@ -68,10 +68,10 @@ vim.o.writebackup = false
 vim.o.expandtab = true
 
 -- Number of spaces per indentation level
-vim.o.shiftwidth = 2
+vim.o.shiftwidth = 4
 
 -- Number of spaces represented by a <Tab>
-vim.o.tabstop = 2
+vim.o.tabstop = 4
 
 -- Highlight the line under the cursor
 vim.o.cursorline = true
@@ -80,7 +80,7 @@ vim.o.cursorline = true
 vim.o.number = true
 
 -- Show relative numbers (useful for motions like 5j, 3k)
-vim.o.relativenumber = true
+vim.o.relativenumber = false
 
 -- Set line number column width
 vim.o.numberwidth = 5
@@ -89,7 +89,7 @@ vim.o.numberwidth = 5
 vim.o.signcolumn = "yes"
 
 -- Disable line wrapping
-vim.o.wrap = false
+vim.o.wrap = true
 
 -- Disable lazy redraw for smoother animations (set to true for macros)
 vim.o.lazyredraw = false
