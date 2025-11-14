@@ -6,6 +6,7 @@
 local M = {}
 
 local highlights = require("highlights")
+
 M.base46 = {
   theme = "github_dark_dimmed",
   transparency = false,
@@ -14,10 +15,32 @@ M.base46 = {
 }
 
 M.ui = {
-  telescope = { style = "borderless" },
+  telescope = { style = "bordered" },
+  statusline = {
+    enabled = false,
+    theme = "default", -- default/vscode/vscode_colored/minimal
+    -- default/round/block/arrow separators work only for default statusline theme
+    -- round and block will work for minimal theme only
+    separator_style = "default",
+    order = {
+      "mode",
+      "file",
+      "git",
+      "%=",
+      "lsp_msg",
+      "python_venv",
+      "diagnostics",
+      "command",
+      "clients",
+      "cwd",
+      "total_lines",
+    },
+    modules = require("config.statusline").modules,
+  },
   tabufline = {
     enabled = false,
-    lazyload = false,
+    lazyload = true,
+    modules = require("config.tabufline").modules,
   },
 }
 
