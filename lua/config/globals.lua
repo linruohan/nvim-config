@@ -1,5 +1,10 @@
 -- NOTE: Global Variables
 
+-- Colorscheme
+-- Available themes: "tokyonight" and "nvchad"
+-- github_dark_dimmed is a custom NvChad theme with extensive language highlighting
+vim.g.colorscheme = "tokyonight"
+
 -- ====================================================================
 -- Global Variables Configuration
 -- These define environment-specific values and toggle certain Neovim behaviors.
@@ -45,3 +50,6 @@ vim.g.path_separator = is_windows and "\\" or "/" -- Used for filesystem paths
 
 -- Enable Inline Completion
 vim.g.ai_cmp = false
+
+-- Environment-specific settings
+require("config.env")
