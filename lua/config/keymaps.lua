@@ -13,16 +13,16 @@ vim.keymap.set("n", "<leader>bR", "<cmd>%d+<cr>", { desc = "Remove All Text", si
 vim.keymap.set("n", "<leader>bs", "<cmd>SudaWrite<cr>", { desc = "Save With Root", silent = true })
 
 -- Go to previous tab
-vim.keymap.set("n", "<Left>", "<cmd>tabprevious<CR>", { desc = "General | Go to previous tab", silent = true })
+vim.keymap.set("n", "<S-h>", "<cmd>tabprevious<CR>", { desc = "General | Go to previous tab", silent = true })
 
 -- Go to next tab
-vim.keymap.set("n", "<Right>", "<cmd>tabnext<CR>", { desc = "General | Go to next tab", silent = true })
+vim.keymap.set("n", "<S-l>", "<cmd>tabnext<CR>", { desc = "General | Go to next tab", silent = true })
 
 -- New tab
-vim.keymap.set("n", "<Up>", "<cmd>tabnew<CR>", { desc = "General | New tab", silent = true })
+vim.keymap.set("n", "<S-n>", "<cmd>tabnew<CR>", { desc = "General | New tab", silent = true })
 
 -- Close tab
-vim.keymap.set("n", "<Down>", "<cmd>tabclose<CR>", { desc = "General | Close tab", silent = true })
+vim.keymap.set("n", "<leader>x", "<cmd>tabclose<CR>", { desc = "General | Close tab", silent = true })
 
 -- Run Code
 vim.keymap.set("n", "<leader>ce", function()
@@ -73,7 +73,6 @@ vim.keymap.set("n", "<C-l>", function()
 end, { silent = true })
 
 local map = vim.keymap.set
-map("n", ";", ":", { desc = "CMD enter command mode" })
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
 map("n",";",":")
 map("n","<C-w>","<cmd> bd <CR>", { desc = "close file"})
@@ -93,20 +92,6 @@ map("n","<C-s>",":w<cr>")
 map("i","jj","ESC")
 map("i", "jk", "<ESC>")
 map("v",">",">gv")
-map("n", "<leader>fm", function()
-  require("conform").format()
-end, { desc = "File Format with conform" })
-
--- switch tab files : shift+l :next ; shift+h :prev; leader+x: close;
-map("n", "<S-l>", function()
-  require("nvchad.tabufline").next()
-end, { desc = "buffer goto next" })
-map("n", "<S-h>", function()
-  require("nvchad.tabufline").prev()
-end, { desc = "buffer goto prev" })
--- map("n", "<leader>x", function()
-  -- require("nvchad.tabufline").close_buffer()
--- end, { desc = "buffer close" })
 
 
 map("i", "jk", "<ESC>", { desc = "escape insert mode" })
