@@ -30,6 +30,7 @@ M.ui = {
       -- "lsp_msg",
       "python_venv",
       "diagnostics",
+      "debug_status",
       "command",
       "lazy_updates",
       -- "clients",
